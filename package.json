@@ -4,9 +4,9 @@
     "description": "trying to bonk people right in their head",
     "main": "bot.js",
     "scripts": {
-        "start": "node ." 
+        "start": "node bot.js" 
     },
-    "author": "Igor Camões ????",
+    "author": "Igor Camões",
     "dependencies": {
         "discord.js": "^12.2.0",
         "dotenv": "^8.2.0",

@@ -3,6 +3,9 @@
     "version": "0.0.1",
     "description": "trying to bonk people right in their head",
     "main": "bot.js",
+    "scripts": {
+        "start": "node ." 
+    },
     "author": "Igor Camões ????",
     "dependencies": {
         "discord.js": "^12.2.0",

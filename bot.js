@@ -21,28 +21,6 @@ client.on('message', msg => {
 
         msg.channel.send("bonk!", imagem);
     }
-    else if(msg.content === 'hmeter'){
-        const rh = () => {return Math.floor(Math.random() * 100)};
-        let hp = rh();
-
-        msg.channel.send(`Pelas minhas contas... <@${msg.author.id}> está ${hp}% horny hoje... :thinking:`);
-            if(hp > 80){
-                msg.channel.send(':rotating_light: EITA PORRA BONK ALERT NO VERMELHO!!! :rotating_light:');
-                msg.channel.send(`bonks <@${msg.author.id}>`);
-            }
-            else if(hp > 60 && hp <= 80){
-                msg.channel.send('Ei... Nem pense em aumentar isso aí. **Análise**')
-            }
-            else if(hp >= 40 && hp <= 60){
-                msg.channel.send('Creio que não vai precisar de nenhum bonk... ~~por enquanto~~');
-            }
-            else if(hp > 20 && hp < 40){
-                msg.channel.send('Entendível, tenha um ótimo dia.')
-            }
-            else if(hp <= 20){
-                msg.channel.send('Continue assim, mas não tanto ou vou ter que te dar um horny pass.')
-            }
-    }
     else if(msg.content.startsWith('hmeter')){
 
         const rh = () => {return Math.floor(Math.random() * 100)};
@@ -74,18 +52,16 @@ client.on('message', msg => {
         let mention = msg.mentions.users.first();
 
         if(msg.mentions.users.size >= 2){msg.channel.send('TÁ TODO MUNDO NA HORNY JAIL BICHO')}
+        else if(mention === undefined){
+          msg.channel.send('Comando em desenvolvimento')
+          const gif = new Discord.MessageAttachment('https://media1.tenor.com/images/6493bee2be7ae168a5ef7a68cf751868/tenor.gif?itemid=17298755');
+            msg.channel.send('HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL', gif)
+        }
         else if(mention.id === msg.author.id){
-            msg.channel.send(`Tá... <@${mention.id}> você foi pra horny jail por conta própria.`, {files:['./h.jpg']});
+            msg.channel.send(`Tá... <@${mention.id}> você foi pra horny jail por conta própria.`, {files:['./h.jpg']})
         }
         else if(mention.id === '734806792923775136'){
             msg.channel.send('**nÃO**', {files:['./bonks-assets/bonk3.jpg']});
-        }
-        else if(mention === undefined){
-            msg.channel.send(`<@${msg.author.id}> não mandou ninguém pra horny jail`);
-        }
-        else{
-            const gif = new Discord.MessageAttachment('https://media1.tenor.com/images/6493bee2be7ae168a5ef7a68cf751868/tenor.gif?itemid=17298755');
-            msg.channel.send('HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL HORNY JAIL', gif)
         }
     }
 })
@@ -138,4 +114,10 @@ client.on('message', async msg => {
             
         };
     }
+})
+
+client.on('message', async msg =>{
+  if(msg.content.startsWith('bonkhelp')){
+    msg.channel.send('Os comandos disponíveis atualmente são: **bonks**, **bonk?**, **hmeter** e **hornyj** que está em WIP (o horny jail irá mudar completamente com a implementação do database)')
+  }
 })
